@@ -1,0 +1,4 @@
+files {
+    usersfile = ${modconfdir}/${.:name}/authorized_emails.txt
+    compat = no
+}
