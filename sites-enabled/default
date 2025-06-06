@@ -1,0 +1,14 @@
+authorize {
+    preprocess
+    auth_log
+
+    # Custom logic to allow emails from the file
+    if ("%{exec:/bin/grep -i %{User-Name} /app/authorized_emails.txt}" =~ "%{User-Name}") {
+        ok
+    }
+    else {
+        reject
+    }
+
+    files
+}
